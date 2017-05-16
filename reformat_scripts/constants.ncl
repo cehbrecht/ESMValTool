@@ -20,7 +20,7 @@
 ;;
 ;;#############################################################################
 
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 scriptname = "reformat_scripts/constants.ncl"
 

@@ -56,7 +56,7 @@
 
 ;; Temporary file with current namelist configuration
 ;; (updated by Python on the fly)
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 ; Auxiliary NCL routines
 load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/contributed.ncl"

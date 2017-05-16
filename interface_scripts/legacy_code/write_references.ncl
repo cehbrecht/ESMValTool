@@ -7,7 +7,7 @@ load "./interface_scripts/auxiliary.ncl"
 
 ; Loading temporary files. These are updated on the fly by Python and
 ; used for Python->NCL communication
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 load "./diag_scripts/lib/ncl/set_operators.ncl"
 

@@ -40,7 +40,7 @@
 ; A temporary file written by the invoking Python script
 ; Passes on a number of variables from Python to NCL
 
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 load "./interface_scripts/auxiliary.ncl"
 load "./diag_scripts/lib/ncl/statistics.ncl"
 load "./diag_scripts/aux/perfmetrics/aux_perfmetrics.ncl"

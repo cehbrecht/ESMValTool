@@ -36,7 +36,7 @@
 ;;#############################################################################
 
 load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/contributed.ncl"
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 load "./interface_scripts/messaging.ncl"
 load "./diag_scripts/lib/ncl/set_operators.ncl"
 

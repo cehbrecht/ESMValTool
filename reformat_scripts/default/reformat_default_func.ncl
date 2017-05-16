@@ -31,7 +31,7 @@
 
 load "./reformat_scripts/constants.ncl"
 load "./interface_scripts/messaging.ncl"
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 begin
     if (isfilepresent_esmval(FIXFILE)) then

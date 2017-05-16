@@ -28,7 +28,7 @@
 ;;#############################################################################
 
 load "./interface_scripts/messaging.ncl"
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 scriptname = "reformat_scripts/EMAC/reformat_GFDL_main.ncl"
 

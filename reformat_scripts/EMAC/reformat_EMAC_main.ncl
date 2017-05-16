@@ -29,7 +29,7 @@
 ;;
 ;;#############################################################################
 
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 load "./interface_scripts/messaging.ncl"
 
 scriptname = "reformat_scripts/EMAC/reformat_EMAC_main.ncl"

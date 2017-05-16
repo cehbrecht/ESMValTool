@@ -41,7 +41,7 @@
 load "$NCARG_ROOT/lib/ncarg/nclscripts/contrib/time_axis_labels.ncl"
 
 ;; Load Temporary file with current namelist configuration
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 ;; Load auxiliary NCL routines
 load "./diag_scripts/lib/ncl/latlon.ncl"

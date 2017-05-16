@@ -1,4 +1,4 @@
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 undef("remove_anom")
 procedure remove_anom(imod, aYdata, ns, sYdata)

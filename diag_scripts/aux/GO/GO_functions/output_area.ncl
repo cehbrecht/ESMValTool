@@ -1,4 +1,4 @@
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 undef("output_area")
 procedure output_area(diri_out: string, imod: integer, area_lon, area_lat, area_temp)

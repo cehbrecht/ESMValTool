@@ -48,6 +48,11 @@ import xml_parsers
 version = "1.1.0"
 os.environ['0_ESMValTool_version'] = version
 
+# Hack to get diagnostic script to receive interface file location
+os.environ['ESMVALTOOL_INTERFACE'] = './interface_data/ncl.interface.' + str(os.getpid())
+
+os.putenv('ESMVALTOOL_INTERFACE', './interface_data/ncl.interface.' + str(os.getpid()))
+
 # Check NCL version
 ncl_version_check()
 
@@ -73,6 +78,10 @@ Project = xml_parsers.namelistHandler()
 parser = xml.sax.make_parser()
 parser.setContentHandler(Project)
 parser.parse(input_xml_full_path)
+
+#Niels Drost: Nasty hack to set climo dir to something unique for every process
+Project.project_info['GLOBAL']['climo_dir'] = Project.project_info['GLOBAL']['climo_dir'] + "-" + str(os.getpid())
+#Project.project_info['GLOBAL']['wrk_dir'] = Project.project_info['GLOBAL']['wrk_dir'] + "-" + str(os.getpid())
 
 # Project_info is a dictionary with all info from the namelist.
 project_info = Project.project_info
@@ -201,6 +210,7 @@ for currDiag in project_info['DIAGNOSTICS']:
     info("Running diag_script: " + executable, verbosity, required_verbosity=1)
     info("with configuration file: " + configfile, verbosity,
          required_verbosity=1)
+
 
     projects.run_executable(executable,
                             project_info,

@@ -38,7 +38,7 @@
 load "$NCARG_ROOT/lib/ncarg/nclscripts/esmf/ESMF_regridding.ncl"
 
 ;; Load Temporary file with current namelist configuration
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 ;; Load auxiliary NCL routines
 load "./diag_scripts/lib/ncl/ensemble.ncl"

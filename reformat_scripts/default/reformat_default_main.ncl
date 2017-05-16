@@ -19,7 +19,7 @@
 ;;
 ;;#############################################################################
 
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 load "./interface_scripts/messaging.ncl"
 
 scriptname = "reformat_scripts/default/reformat_default_main.ncl"

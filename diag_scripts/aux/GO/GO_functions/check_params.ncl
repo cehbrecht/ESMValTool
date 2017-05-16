@@ -1,4 +1,4 @@
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 undef("check_params")
 procedure check_params(plot_type,\

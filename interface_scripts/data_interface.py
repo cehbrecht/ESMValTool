@@ -348,7 +348,7 @@ class Ncl_data_interface(Data_interface):
         self.clean_up_interface_folder(self.do_not_remove_these)
 
         fsource = open("interface_data/ncl_interface_templates/ncl.tmpl", "r")
-        ftarget = open("interface_data/ncl.interface", "w")
+        ftarget = open("interface_data/ncl.interface." + str(os.getpid()), "w")
 
         # Replace template file placeholders, <<[A-Z_]+>>, with
         # configuration data
@@ -442,7 +442,7 @@ class R_data_interface(Data_interface):
         self.clean_up_interface_folder(self.do_not_remove_these)
 
         fsource = open("interface_data/r_interface_templates/r.tmpl", "r")
-        ftarget = open("interface_data/r.interface", "w")
+        ftarget = open("interface_data/r.interface." + str(os.getpid()), "w")
         line_cont = ', \n'
 
         # Replace template file placeholders, <<[A-Z_]+>>, with

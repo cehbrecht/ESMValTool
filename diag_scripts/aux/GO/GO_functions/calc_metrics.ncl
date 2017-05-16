@@ -1,4 +1,4 @@
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 undef("calc_metrics")
 procedure calc_metrics(models, dim_MOD, refModel, iref, aYdata)

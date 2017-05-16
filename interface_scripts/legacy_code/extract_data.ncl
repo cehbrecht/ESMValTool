@@ -20,7 +20,7 @@
 
 ; Loading temporary file. This file is updated on the fly by Python and
 ; used for Python->NCL communication
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 load "./interface_scripts/info_output.ncl"
 load "./interface_scripts/get_varName_from_file.ncl"

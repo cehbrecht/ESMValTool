@@ -1,4 +1,4 @@
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 undef("calc_anom")
 procedure calc_anom(imod, aYdata, ns, sYdata)

@@ -1,4 +1,4 @@
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 undef("set_ref_mask")
 function set_ref_mask(plot_typ_info, imod, models, refModel,  A0)

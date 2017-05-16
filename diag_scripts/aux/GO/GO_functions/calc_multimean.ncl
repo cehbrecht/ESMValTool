@@ -1,4 +1,4 @@
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 undef("calc_multimean")
 function calc_multimean(models, Xdata, Ydata,  dim_MOD, nMax, dimX)

@@ -13,7 +13,7 @@ load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/contributed.ncl"
 load "./interface_scripts/info_output.ncl"
 
 ;; Temporary files update by Python on the fly 
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 begin
     verbosity  = stringtointeger(getenv("ESMValTool_verbosity"))

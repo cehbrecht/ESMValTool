@@ -23,7 +23,7 @@
 ;;    * 201303-A_Sabrina Wenzel: written       
 ;;                                                                            
 ;;############################################################################
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 load "./interface_scripts/auxiliary.ncl"
 load "./interface_scripts/data_handling.ncl"

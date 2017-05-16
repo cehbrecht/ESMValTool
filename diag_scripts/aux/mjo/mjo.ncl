@@ -24,7 +24,7 @@ load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/shea_util.ncl"
 load "$NCARG_ROOT/lib/ncarg/nclscripts/esmf/ESMF_regridding.ncl"
 
 ;; Temporary file updated by Python on the fly
-load "./interface_data/ncl.interface"
+load "$ESMVALTOOL_INTERFACE"
 
 load "./interface_scripts/auxiliary.ncl"
 load "./interface_scripts/data_handling.ncl"
