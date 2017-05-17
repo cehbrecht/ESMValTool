@@ -305,7 +305,8 @@ class Data_interface(object):
                 listdir.remove(listitem)
 
         for direntry in listdir:
-            os.remove(os.path.join("./interface_data", direntry))
+            pass
+            #os.remove(os.path.join("./interface_data", direntry))
 
 
 class Ncl_data_interface(Data_interface):

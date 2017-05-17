@@ -53,6 +53,8 @@ os.environ['ESMVALTOOL_INTERFACE'] = './interface_data/ncl.interface.' + str(os.
 
 os.putenv('ESMVALTOOL_INTERFACE', './interface_data/ncl.interface.' + str(os.getpid()))
 
+print "pid is", os.getpid()
+
 # Check NCL version
 ncl_version_check()
 
@@ -81,7 +83,7 @@ parser.parse(input_xml_full_path)
 
 #Niels Drost: Nasty hack to set climo dir to something unique for every process
 Project.project_info['GLOBAL']['climo_dir'] = Project.project_info['GLOBAL']['climo_dir'] + "-" + str(os.getpid())
-#Project.project_info['GLOBAL']['wrk_dir'] = Project.project_info['GLOBAL']['wrk_dir'] + "-" + str(os.getpid())
+Project.project_info['GLOBAL']['wrk_dir'] = Project.project_info['GLOBAL']['wrk_dir'] + "-" + str(os.getpid())
 
 # Project_info is a dictionary with all info from the namelist.
 project_info = Project.project_info

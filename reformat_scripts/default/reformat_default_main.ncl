@@ -19,6 +19,7 @@
 ;;
 ;;#############################################################################
 
+print("loading... " + getenv("ESMVALTOOL_INTERFACE"))
 load "$ESMVALTOOL_INTERFACE"
 load "./interface_scripts/messaging.ncl"
 
