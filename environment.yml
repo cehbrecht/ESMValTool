@@ -3,13 +3,16 @@
 name: esmvaltool
 channels:
 - conda-forge
-- khallock # ncl package on conda-forge is broken
+- conda-forge/label/broken
+#- khallock # ncl package on conda-forge is broken
 #- defaults # in case of missing packages
 #- Clyde_Fare #for scientific python
 
 # ESMVALTOOL DEPENDENCIES
 
 dependencies:
+# need to stay on python 2.7
+- python=2.7
 # Needed by main, preprocessor, workflow, one or more diagnostics, shared diagnostic code.
 - basemap
 - cartopy
@@ -28,6 +31,10 @@ dependencies:
 - scipy
 - shapely
 - six
+# workaround for broken ncl package
+- poppler=0.52
+- xerces-c=3.1
+- gsl
 #- scientificpython
 
 # Old Iris and ncl dependency block. Simply using the top level packages should be enough now.
