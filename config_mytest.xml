@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- user defined configuration file -->
+<settings>
+	<pathCollection>
+		<usrpath category="userDirectory" type="output" id="WORKPATH">
+			<path>/tmp/esmvaltool/work/</path>
+			<description>working directory</description>
+		</usrpath>
+
+		<usrpath category="userDirectory" type="output" id="PLOTPATH">
+			<path>/tmp/esmvaltool/plots/</path>
+			<description>directory for output plots</description>
+		</usrpath>
+
+		<usrpath category="userDirectory" type="output" id="CLIMOPATH">
+			<path>/tmp/esmvaltool/climo/</path>
+			<description>directory for output files</description>
+		</usrpath>
+
+		<usrpath category="userDirectory" type="output" id="REGRPATH">
+			<path>/tmp/esmvaltool/regridding/</path>
+			<description>directory for regridding files</description>
+		</usrpath>
+
+		<usrpath category="simulation" type="input" id="MODELPATH">
+			<path>/media/psf/Home/Data/cmip5/esgf1.dkrz.de/thredds/fileServer/cmip5/</path>
+			<description>root directory of model data</description>
+		</usrpath>
+
+		<usrpath category="observation" type="input" id="OBSPATH">
+			<path>/media/psf/Home/Data/obs/demo/esmvaltool/ESMValTool_OBS/</path>
+			<description>root directory of observational data</description>
+		</usrpath>
+
+  	<usrpath category="observation" type="input" id="OBSPATH2">
+      <path>/media/psf/Home/Data/obs/demo/esmvaltool/ESMValTool_OBS/</path>
+      <description>alternative root directory of observational data</description>
+    </usrpath>
+
+		<usrpath category="observation" type="input" id="RAWOBSPATH">
+			<path>/media/psf/Home/Data/obs/demo/esmvaltool/ESMValTool_OBS/RAW</path>
+			<description>root directory of raw observational data (for reformat_obs scripts)</description>
+		</usrpath>
+
+	</pathCollection>
+</settings>

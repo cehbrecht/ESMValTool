@@ -1,0 +1,50 @@
+<namelist>
+<include href="./config_mytest.xml"/>
+<namelist_summary>
+###############################################################################
+###############################################################################
+</namelist_summary>
+
+<GLOBAL>
+<write_plots type="boolean"> True </write_plots>
+<write_netcdf type="boolean"> True </write_netcdf>
+<force_processing type="boolean"> False </force_processing>
+<wrk_dir type="path"> @{WORKPATH} </wrk_dir>
+<plot_dir type="path"> @{PLOTPATH} </plot_dir>
+<climo_dir type="path"> @{CLIMOPATH} </climo_dir>
+<write_plot_vars type="boolean"> True </write_plot_vars>
+<max_data_filesize type="integer"> 100 </max_data_filesize>
+<max_data_blocksize type="integer"> 500 </max_data_blocksize>
+<verbosity type="integer"> 1 </verbosity>
+<exit_on_warning type="boolean"> False </exit_on_warning>
+<output_file_type> ps </output_file_type>
+<force_calc type="boolean"> False </force_calc>
+<force_gradecalc type="boolean"> False </force_gradecalc>
+<force_taylorcalc type="boolean"> False </force_taylorcalc>
+</GLOBAL>
+
+<MODELS>
+  <model>ESGF_CMIP5 MPI-M output1 MPI-M MPI-ESM-LR historical mon atmos Amon r1i1p1 latest 2000 2001 CMIP5_template</model>
+</MODELS>
+
+<DIAGNOSTICS>
+
+<diag>
+<description> Dummy diagnositc </description>
+<variable_def_dir> ./variable_defs/ </variable_def_dir>
+<variable> MyVar </variable>
+<field_type> T3M </field_type>
+<diag_script_cfg_dir> ./nml/cfg_MyDiag/ </diag_script_cfg_dir>
+<diag_script cfg="cfg_MyDiag.ncl"> MyDiag.ncl </diag_script>
+
+</diag>
+
+</DIAGNOSTICS>
+
+
+<ESGF>
+  <config_file>./esgf_config_mytest.xml</config_file>
+</ESGF>
+
+
+</namelist>
