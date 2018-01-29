@@ -3,8 +3,9 @@
 name: esmvaltool
 channels:
 - conda-forge
-- khallock # ncl package on conda-forge is broken
-#- defaults # in case of missing packages
+#- khallock # ncl package on conda-forge is broken
+- conda-forge/label/broken
+- defaults # in case of missing packages
 #- Clyde_Fare #for scientific python
 
 # ESMVALTOOL DEPENDENCIES
@@ -18,6 +19,11 @@ dependencies:
 - flask
 - iris
 - ncl
+# ncl pacch
+- poppler=0.52 
+- xerces-c=3.1 
+- gsl
+# ncl patch end
 - netcdf4
 - numba=0.35.0
 - numpy
