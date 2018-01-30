@@ -22,6 +22,7 @@ CMIP5:
     default: '/'
     BADC: '[institute]/[model]/[exp]/[freq]/[realm]/[mip]/[ensemble]/latest/[var]'
     # DKRZ: '[institute]/[model]/[exp]/[realm]/[freq]/[mip]/[ensemble]/[latestversion]/[var]'
+    # cmip5/[product]/[institute]/[model]/[experiment]/[time_freq]/[realm]/[mip]/[ensemble]/[version]/[variable]
     DKRZ: '[institute]/[model]/[exp]/[freq]/[realm]/[mip]/[ensemble]/latest/[var]'
     ETHZ: '[exp]/[mip]/[var]/[model]/[ensemble]/'
     SMHI: '[model]/[ensemble]/[exp]/[freq]'
