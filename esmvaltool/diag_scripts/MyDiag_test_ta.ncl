@@ -95,7 +95,9 @@ begin
                      "",          \  ; obs_references
                      (/"P_dlrveu", "P_esmval"/))   ; proj_references
 
+    info_output("!!!! it may take for ever ... perfect", verbosity, 1)
     do idx_mod = 0, dim_MOD - 1
+        info_output("!!!! lets loop ..", verbosity, 1)
         data = read_data(idx_mod, var0, field_type0)
     end do
 end
@@ -242,7 +244,9 @@ begin
     ;; Option 1: pass data directly
     ;; -> may only work with NCL (i.e. ok here)
     ;; Dummies trigger defaults
-     map = contour_map("dummy_for_wks", data1, "dummy_for_var")
+     wks = get_wks("dummy_for_wks", diag_script, var0)
+     map = contour_map(wks, data1,var0)
+     delete(wks)
     ;; Option 2: pass data via netCDF file
     ;;-> useful for non-NCL routines & metrics
 ;    map = contour_map("dummy_for_wks", ncdf_outfile,"dummy_for_var")
@@ -282,3 +286,5 @@ begin
 
     info_output(">>>>>>>> Leaving " + diag_script, verbosity, 4)
 end
+
+exit()
