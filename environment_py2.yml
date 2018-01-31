@@ -29,7 +29,7 @@ dependencies:
 - numba=0.35.0
 - numpy
 - pillow # providing PIL package
-- python-cdo
+#- python-cdo
 - python-stratify
 - pyyaml
 - scipy
@@ -50,6 +50,8 @@ dependencies:
 #- xorg-libsm=1.2.2
 #- xorg-libxext
 #- xorg-libxrender
+# esgf
+- esgf-pyclient
 
 # DEVELOPMENT DEPENDENCIES
 #
@@ -58,30 +60,30 @@ dependencies:
 # location when required to run the command.
 
 # documentation
-- sphinx
+#- sphinx
 
 # testing
-- mock
-- nose
-- pytest
-- pytest-cov
-- pytest-html
+#- mock
+#- nose
+#- pytest
+#- pytest-cov
+#- pytest-html
 
 # Note that there can be only one pip section
 - pip:
   # TODO: replace esgf-pyclient and geoval by conda packages
   # TODO: move esgf-pyclient and geoval to ESMVALTOOL DEPENDENCIES
-  - easytest
-  - esgf-pyclient
-  - geoval
+  #- easytest
+  #- esgf-pyclient
+  #- geoval
   # TODO: replace dummydata by conda/PyPI package and move to testing
   # dummydata fetched from github as a zip file, contains latest version
-  - https://github.com/ESMValGroup/dummydata/archive/dev.zip
+  #- https://github.com/ESMValGroup/dummydata/archive/dev.zip
   # code style (pip versions are more up to date)
-  - isort
-  - prospector[with_pyroma]
-  - pycodestyle  # also used for testing
-  - pydocstyle
-  - pylint
-  - yapf
+  #- isort
+  #- prospector[with_pyroma]
+  #- pycodestyle  # also used for testing
+  #- pydocstyle
+  #- pylint
+  #- yapf
   - yamale
