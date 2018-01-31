@@ -7,8 +7,25 @@ import glob
 import json
 import logging
 import os
+from ..interface_scripts.data_finder import _CFG
 
 logger = logging.getLogger(__name__)
+
+
+def _read_cmor_tables():
+    tables = {}
+
+    for table in _CFG.keys():
+        project = _CFG[table]
+
+        table_path = project.get('cmor_table')
+        cmor_type = project.get('cmor_type', 'CMIP5')
+
+        if cmor_type == 'CMIP5':
+            tables[table] = CMIP5Info(table_path)
+        elif cmor_type == 'CMIP6':
+            tables[table] = CMIP6Info(table_path)
+    return tables
 
 
 class CMIP6Info(object):
@@ -412,3 +429,6 @@ class CMIP5Info(object):
             return self.tables[table][short_name]
         except KeyError:
             return None
+
+
+CMOR_TABLES = _read_cmor_tables()

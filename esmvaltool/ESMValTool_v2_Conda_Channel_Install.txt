@@ -1,0 +1,19 @@
+Install via conda channel v2
+============================
+
+from scratch (including installer for python and qtm A LOT OF TIME and DISK): conda env create --file environment.yml --name esmvaltool
+with linking to existing conda modules (HIGHLY RECOMMENDED): conda env update --file environment.yml --name esmvaltool
+source activate esmvaltool
+python setup.py install
+
+remember to add anaconda to python path:
+export PATH=$PATH_TO_ANACONDA/anaconda2/bin:$PATH
+
+if you need to update all anaconda packages:
+(if your conda is ancient eg 1 year old):
+conda update --all
+
+git setup
+==========
+git clone https://github.com/ESMValGroup/ESMValTool.git
+git checkout version2_knmi_sprint
