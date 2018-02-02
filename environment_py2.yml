@@ -1,10 +1,11 @@
 ---
 
-name: esmvaltool
+name: esmvaltool_py2
 channels:
 - conda-forge
 #- khallock # ncl package on conda-forge is broken
 - conda-forge/label/broken
+- birdhouse # yamale etc ...
 - defaults # in case of missing packages
 #- Clyde_Fare #for scientific python
 
