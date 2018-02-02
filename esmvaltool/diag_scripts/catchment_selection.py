@@ -1,8 +1,46 @@
+"""Catchment Selection diagnostic."""
+import logging
+import os
+import sys
+
+import cartopy.crs as ccrs
+import iris
+import iris.plot as iplt
+import iris.quickplot as qplt
+import matplotlib.pyplot as plt
+import yaml
 from netCDF4 import Dataset
 
+logger = logging.getLogger(__name__)
 
-def main():
-    file_ecv = "pr_day_EC-EARTH_historical_r12i1p1_19500101-19741231.nc"
+
+def get_cfg():
+    """Read diagnostic script configuration from settings.yml."""
+    settings_file = sys.argv[1]
+    with open(settings_file) as file:
+        cfg = yaml.safe_load(file)
+    return cfg
+
+
+def get_input_files(cfg, index=0):
+    """Get a dictionary with input files from metadata.yml files."""
+    metadata_file = cfg['input_files'][index]
+    with open(metadata_file) as file:
+        metadata = yaml.safe_load(file)
+    return metadata
+
+
+def plot2d(cube, filename):
+    logger.info("Creating %s", filename)
+    fig = plt.figure()
+    qplt.pcolormesh(cube)
+    plt.gca().coastlines()
+    fig.savefig(filename)
+
+
+def compute(filename, auxfile):
+    """ Compute Catchment Selection """
+    file_ecv = filename
 
     ecv = Dataset(file_ecv, mode='r')
     # print ecv
@@ -12,6 +50,7 @@ def main():
     lon = ecv.variables['lon']
     time = ecv.variables['time']
 
+    # print("LAT : ")
     # print lat[:]
 
     # if lat and lon are 1-dimensional: take all parwise combinations
@@ -29,11 +68,11 @@ def main():
     points = MultiPoint(coord_points)
 
     import shapefile
-    sf = shapefile.Reader("./niger-hype_select.shp")
+    sf = shapefile.Reader(auxfile)
     # first feature of the shapefile
-    # feature = sf.shapeRecords()[0]
-    # first = feature.shape.__geo_interface__
-    # print first
+    feature = sf.shapeRecords()[0]
+    first = feature.shape.__geo_interface__
+    logger.info("%s", first)
 
     shapes = sf.shapes()
 
@@ -109,5 +148,35 @@ def main():
     # https://stackoverflow.com/questions/23780324/multicharacter-strings-to-netcdf-with-python-netcdf4
 
 
+def main():
+
+    cfg = get_cfg()
+    print("cfg:   {0} ".format(cfg))
+    logger.setLevel(cfg['log_level'].upper())
+
+    input_files = get_input_files(cfg)
+
+    os.makedirs(cfg['plot_dir'])
+
+    auxfile = cfg['auxfile']
+
+    for variable_name, filenames in input_files.items():
+        logger.info("Processing variable %s", variable_name)
+        for filename, attributes in filenames.items():
+            plot_filename = os.path.join(
+                cfg['plot_dir'],
+                os.path.splitext(os.path.basename(filename))[0] + '.png',
+            )
+            # cube = iris.load_cube(filename)
+            # cube = cube.collapsed('time', iris.analysis.MEAN)
+            # plot2d(cube, plot_filename)
+            compute(filename, auxfile)
+
+
 if __name__ == '__main__':
+    iris.FUTURE.netcdf_promote = True
+    logging.basicConfig(
+        format="%(asctime)s [%(process)d] %(levelname)-8s "
+               "%(name)s,%(lineno)s\t%(message)s"
+    )
     main()

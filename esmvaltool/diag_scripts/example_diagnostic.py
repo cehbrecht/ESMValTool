@@ -60,7 +60,7 @@ def main():
 if __name__ == '__main__':
     iris.FUTURE.netcdf_promote = True
     logging.basicConfig(
-        format=
-        "%(asctime)s [%(process)d] %(levelname)-8s %(name)s,%(lineno)s\t%(message)s"
+        format="%(asctime)s [%(process)d] %(levelname)-8s "
+               "%(name)s,%(lineno)s\t%(message)s"
     )
     main()

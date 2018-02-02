@@ -1,0 +1,26 @@
+---
+
+models:
+  - {model: bcc-csm1-1,  project: CMIP5,  mip: Amon,  exp: historical,  ensemble: r1i1p1,  start_year: 2000,  end_year: 2002}
+  - {model: GFDL-ESM2G,  project: CMIP5,  mip: Amon,  exp: historical,  ensemble: r1i1p1,  start_year: 2000,  end_year: 2002}
+  - {model: MPI-ESM-LR,  project: CMIP5,  mip: Amon,  exp: historical,  ensemble: r1i1p1,  start_year: 2000,  end_year: 2002}
+  - {model: ERA-Interim, project: OBS,    tier: 3,    type: reanaly,    version: 1,        start_year: 2000,  end_year: 2002}
+
+preprocessors:
+  preprocessor_1:
+    regrid:
+      target_grid: ERA-Interim
+      scheme: linear
+
+diagnostics:
+  cselect_diagnostic:
+    description: Catchment selection 
+    variables:
+      pr:
+        preprocessor: preprocessor_1
+        field: T2Ms
+    scripts:
+      catchSelect:
+        script: catchment_selection.py
+        auxfile: /path/to/auxfile/niger-hype_select.shp
+        title: "Catchment Selection diagnostic"
