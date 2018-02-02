@@ -18,7 +18,7 @@ dependencies:
 - cartopy
 - cf_units
 - cython
-- flask
+#- flask
 - iris
 - ncl
 # ncl pacch
@@ -53,7 +53,8 @@ dependencies:
 #- xorg-libxrender
 # esgf
 - esgf-pyclient
-
+# from birdhouse channel
+- yamale
 # DEVELOPMENT DEPENDENCIES
 #
 # Dependencies below that are required by 'setup.py test' and 'setup.py lint'
@@ -71,7 +72,7 @@ dependencies:
 #- pytest-html
 
 # Note that there can be only one pip section
-- pip:
+#- pip:
   # TODO: replace esgf-pyclient and geoval by conda packages
   # TODO: move esgf-pyclient and geoval to ESMVALTOOL DEPENDENCIES
   #- easytest
@@ -87,4 +88,4 @@ dependencies:
   #- pydocstyle
   #- pylint
   #- yapf
-  - yamale
+  #- yamale
