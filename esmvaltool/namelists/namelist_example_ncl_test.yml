@@ -13,14 +13,6 @@ preprocessors:
     mask_landocean: false
     multi_model_statistics: false
 
-  preprocessor_2:
-    extract_levels: false
-    regrid:
-      target_grid: ERA-Interim
-      scheme: linear
-    mask_landocean: false
-    multi_model_statistics: false
-
 diagnostics:
   ta_diagnostics:
     description: Air temperature tutorial diagnostics.
@@ -40,15 +32,3 @@ diagnostics:
       test_ta_no2:
         <<: *settings
         script: examples/diagnostic_ta.ncl
-
-  pr_diagnostic:
-    description: Precipitation tutorial diagnostic.
-    variables:
-      pr:
-        preprocessor: preprocessor_2
-        field: T2Ms
-    additional_models: []
-    scripts:
-      test_pr:
-        <<: *settings
-        script: examples/diagnostic_pr.ncl
